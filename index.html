@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+<body>
+    <div id="app">
+        <div class="row mt-5">
+            <div class="col-4 offset-4">
+                <h3 class="text-center"> Event</h3>
+                <input 
+                :value="text"   
+                @input="updateInput" 
+                type="text" 
+                class="form-control">
+                <button class="btn btn-primary btn-sm">Ekle</button>
+            <!-- burada formun value'si text olarak atandı , text ise vue instance olan app.js üzerinden ilk
+                değeri '' boş olarak atandı. Ardından input ile event binding yaptık 
+                input default olarak bir event döndürüyor bunu updateInput methoduna aktardık .
+                dolayısıyla updateInput methoduna parametre olarak gelen event metodu üzerinden inputun valuesuna
+                değer veren text'e ilgili değeri atamış olduk ve bunu aşağıdaki p taglarında sunduk.
+                ilgili değer event içindeki target özelliğinin value kısmıyla alınır
+                event.target.value
+             -->
+            </div>
+            <div class="col-4 offset-4">
+                <h3 class=" text-center">Event(V-Model)</h3>
+                <input v-model="text2" type="text" class=" form-control">
+            </div>
+            
+        </div>
+        <p>{{ text }} ||| {{text2}}</p>
+        
+    </div>
+    <script src="app.js"></script>
+
+</body>
+
+<!--
+bir elementin içerisinde v-xx gibi ifadeler mevcut ise v directivdir.
+v-on: eventin nasıl bağlanacağını
+v-bind:attribute'un değerinin nereden geleceğini       
+ V-MODEL:
+ data içerisindeki değerle çalışan bi yapı 
+ v-model: yukarıdaki örnekteki text için yazılırsa
+ artık 
+    :value ve 
+    @input 
+gibi directivlere gerek duymadan kendi bağlar 
+
+  
+
+
+-->
+
+</html>
